@@ -35,9 +35,17 @@ const Calculator = () => {
 const calculate = (input) => {
   let numbers = input.split(/(,|\n|\r\n)/g);
   let total = 0;
+  let negNums = [];
   numbers.forEach((number) => {
-    total += (parseInt(number) || 0);
+    let num = parseInt(number) || 0;
+    if (num < 0) {
+      negNums.push(num);
+    }
+    total += num;
   });
+  if (negNums.length > 0) {
+    throw new Error("Negative numbers are not allowed: [" + negNums + "]");
+  }
   return total;
 }
 

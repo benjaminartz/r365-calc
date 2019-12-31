@@ -15,8 +15,14 @@ describe('calculate', () => {
     expect(calculate('1,2,3,4,5,6,7,8,9,10,11,12')).toBe(78);
   });
 
-  it('should work with negative numbers', () => {
-    expect(calculate('4,-3')).toBe(1);
+  it('should throw an error with negative numbers, including the offending numbers', () => {
+    let message = "";
+    try {
+      calculate('4,-3,5,-2');
+    } catch (e) {
+      message = e.message;
+    }
+    expect(message).toContain("[-3,-2]");
   });
 
   it('should treat empty numbers as 0', () => {
