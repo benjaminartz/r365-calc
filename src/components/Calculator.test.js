@@ -45,4 +45,9 @@ describe('calculate', () => {
     expect(calculate('1\r\n2,3')).toBe(6);
   });
 
+  it('should support custom delimeters', () => {
+    expect(calculate("//#\n2#5")).toBe(7);
+    expect(calculate("//,\n2,ff,100")).toBe(102);
+  });
+
 });

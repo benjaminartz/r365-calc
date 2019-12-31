@@ -33,7 +33,12 @@ const Calculator = () => {
 };
 
 const calculate = (input) => {
-  let numbers = input.split(/(,|\n|\r\n)/g);
+  let delimeter = /(,|\n|\r\n)/g;
+  if (input.startsWith("//")) {
+    delimeter = input.charAt(2);
+    input = input.substring(4);
+  }
+  let numbers = input.split(delimeter);
   let total = 0;
   let negNums = [];
   numbers.forEach((number) => {
