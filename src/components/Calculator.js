@@ -34,9 +34,13 @@ const Calculator = () => {
 
 const calculate = (input) => {
   let delimeter = /(,|\n|\r\n)/g;
-  if (input.startsWith("//")) {
+  if (input.startsWith("//[")) {
+    let split = input.indexOf("]\n");
+    delimeter = input.substring(3,split);
+    input = input.substring(split+1);
+  } else if (input.startsWith("//")) {
     delimeter = input.charAt(2);
-    input = input.substring(4);
+    input = input.substring(2);
   }
   let numbers = input.split(delimeter);
   let total = 0;

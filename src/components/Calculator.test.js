@@ -45,9 +45,13 @@ describe('calculate', () => {
     expect(calculate('1\r\n2,3')).toBe(6);
   });
 
-  it('should support custom delimeters', () => {
+  it('should support a custom delimeter of a single character', () => {
     expect(calculate("//#\n2#5")).toBe(7);
     expect(calculate("//,\n2,ff,100")).toBe(102);
+  });
+
+  it('should support a custom delimeter of any length', () => {
+    expect(calculate("//[***]\n11***22***33")).toBe(66);
   });
 
 });
