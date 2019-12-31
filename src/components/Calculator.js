@@ -32,12 +32,17 @@ const Calculator = () => {
   );
 };
 
+const regEscape = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
 const calculate = (input) => {
   let delimeter = /(,|\n|\r\n)/g;
   if (input.startsWith("//[")) {
-    let split = input.indexOf("]\n");
-    delimeter = input.substring(3,split);
-    input = input.substring(split+1);
+    let newlineIndex = input.indexOf("\n");
+    let delimeters = input.substring(3,newlineIndex-1).split("][");
+    delimeters = delimeters.map((d) => regEscape(d));
+    delimeter = delimeters.join("|");
+    delimeter = new RegExp(delimeter, "g");
+    input = input.substring(newlineIndex);
   } else if (input.startsWith("//")) {
     delimeter = input.charAt(2);
     input = input.substring(2);

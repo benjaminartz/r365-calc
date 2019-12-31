@@ -54,4 +54,7 @@ describe('calculate', () => {
     expect(calculate("//[***]\n11***22***33")).toBe(66);
   });
 
+  it('should support multiple custom delimeters of any length', () => {
+    expect(calculate("//[*][!!][r9r]\n11r9r22*hh*33!!44")).toBe(110);
+  });
 });
