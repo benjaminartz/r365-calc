@@ -1,0 +1,49 @@
+body {
+  background-color: #282c34;
+  font-size: 20px;
+  color: white;
+  margin: 20px;
+}
+
+input, button {
+  margin: 0 10px 20px 0;
+  padding: 5px;
+}
+
+button {
+  background-color: #1268ff;
+  color: white;
+  border: 2px solid #1268ff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #004fe6;
+  border: 2px solid #004fe6;
+}
+
+table.results {
+  background-color: #eee;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  color: #333;
+}
+table.results td, table.results th {
+  padding: 5px;
+}
+table.results tbody td {
+  font-size: 13px;
+}
+table.results tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.results thead {
+  background: #1C6EA4;
+}
+table.results thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+}
