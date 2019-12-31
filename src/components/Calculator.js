@@ -38,6 +38,7 @@ const calculate = (input) => {
   let negNums = [];
   numbers.forEach((number) => {
     let num = parseInt(number) || 0;
+    num  = ( num > 1000 ) ? 0 : num;
     if (num < 0) {
       negNums.push(num);
     }

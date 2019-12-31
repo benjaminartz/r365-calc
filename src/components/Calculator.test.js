@@ -8,7 +8,11 @@ describe('calculate', () => {
   });
 
   it('should work with 2 numbers', () => {
-    expect(calculate('1,5000')).toBe(5001);
+    expect(calculate('1,5')).toBe(6);
+  });
+
+  it('should treat numbers greater than 1000 as invalid', () => {
+    expect(calculate('2,1001,6')).toBe(8);
   });
 
   it('should work with more than 2 numbers', () => {
