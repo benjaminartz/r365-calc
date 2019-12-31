@@ -32,12 +32,11 @@ const Calculator = () => {
 
 const calculate = (input) => {
   let numbers = input.split(",");
-  if (numbers.length > 2) {
-    throw new Error("Max of 2 numbers exceeded");
-  }
-  let num1 = parseInt(numbers[0]) || 0;
-  let num2 = parseInt(numbers[1]) || 0;
-  return num1 + num2;
+  let total = 0;
+  numbers.forEach((number) => {
+    total += (parseInt(number) || 0);
+  });
+  return total;
 }
 
 export {Calculator, calculate};

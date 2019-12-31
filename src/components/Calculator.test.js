@@ -3,22 +3,16 @@ import {calculate} from './Calculator';
 
 describe('calculate', () => {
 
-  it('should throw an error when more than 2 numbers are provided', () => {
-    let message = "";
-    try {
-      calculate('1,2,3');
-    } catch (e) {
-      message = e.message;
-    }
-    expect(message).toBe("Max of 2 numbers exceeded");
-  });
-
   it('should work with 1 number', () => {
     expect(calculate('20')).toBe(20);
   });
 
   it('should work with 2 numbers', () => {
     expect(calculate('1,5000')).toBe(5001);
+  });
+
+  it('should work with more than 2 numbers', () => {
+    expect(calculate('1,2,3,4,5,6,7,8,9,10,11,12')).toBe(78);
   });
 
   it('should work with negative numbers', () => {
