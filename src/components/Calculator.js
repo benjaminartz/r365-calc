@@ -22,16 +22,18 @@ const Calculator = () => {
   }
 
   return (
-    <div>
-      <input name="input" type="string" value={state.input} onChange={handleChange}></input>
-      <button name="submit" onClick={process}>Go!</button>
+    <>
+      <div className="calcForm">
+        <textarea name="input" type="string" value={state.input} onChange={handleChange}></textarea>
+        <button name="submit" onClick={process}>Go!</button>
+      </div>
       <ResultsTable data={state.results} />
-    </div>
+    </>
   );
 };
 
 const calculate = (input) => {
-  let numbers = input.split(",");
+  let numbers = input.split(/(,|\n|\r\n)/g);
   let total = 0;
   numbers.forEach((number) => {
     total += (parseInt(number) || 0);

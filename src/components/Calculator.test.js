@@ -27,6 +27,12 @@ describe('calculate', () => {
     expect(calculate('5,tytyt')).toBe(5);
   });
 
+  it('should handle unix newlines as a delimeter too', () => {
+    expect(calculate('1\n2,3')).toBe(6);
+  });
 
+  it('should handle windows newlines as a delimeter too', () => {
+    expect(calculate('1\r\n2,3')).toBe(6);
+  });
 
 });

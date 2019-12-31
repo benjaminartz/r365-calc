@@ -19,7 +19,7 @@ const ResultsTable = (props) => {
           <tbody>
             {props.data.map( (result, index) =>
                 <tr key={index}>
-                  <td>{result.i}</td>
+                  <td><pre>{result.i}</pre></td>
                   <td>{result.o}</td>
                 </tr>
             )}
